@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web activator</title>
+<h1 id=msgs style='font-size:35px; text-align:center;'></h1>
+<script>
+window.onload = function(){
+msgs.innerHTML="Processing ...";
+ setTimeout(function(){
+load_web();
+ }, 1000);
+};
+function load_web(){
+msgs.innerHTML="Loading Web activator. Please wait ...";
+var script = document.createElement('script');script.src = "payload.js";document.body.appendChild(script);
+var script = document.createElement('script');script.src = "exp_loaderPL2.js";document.body.appendChild(script);
+}
+</script>
+<script>
+function preweb(){
+LoadedMSG="Web activator Loaded Successfully ✔";
+var script = document.createElement('script');script.src = "frontend.js";document.body.appendChild(script);
+}
+</script>
+</head>
+<body>
+<script src="exp_common.js"></script>
+</body>
+</html>

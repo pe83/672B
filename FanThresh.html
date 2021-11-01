@@ -1,0 +1,67 @@
+<html><!--  -->
+<head>
+<title>Fan Speed</title>
+<style>
+button {
+  background-color: #4CAF50; /* Green */
+  border-radius: 12px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 35px;
+  cursor: pointer;
+}
+button {
+  background-color: #FFE4E1; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+select {
+  background-color: #4CAF50; /* Green */
+  border-radius: 12px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 35px;
+  cursor: pointer;
+}
+select {
+  background-color: #FFE4E1; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+select:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<script src="exp_common.js"></script>
+</head>
+<body style="font-size:35px;text-align:center;">
+<br><br>
+<h1 id=msgs style='font-size:35px;margin:0;'>Fan Speed Default (79)</h1>
+<br>
+<br>
+<button onclick=load_fanthresh()> Set Fan Threshold </button>  <select id="tempC"></select> &#176;C
+<br>
+<br>
+<script>
+for(var i=40; i<=79; i++){var select = document.getElementById("tempC"); var option = document.createElement("OPTION"); select.options.add(option); option.text = i; option.value = i;}
+tempC.value=50;
+</script>
+<script>
+function getScript(source,callback){var gs=document.createElement('script');gs.src=source;gs.onload=callback;gs.async=false;document.body.appendChild(gs);}
+function loadScript2(){getScript("exp_loaderPLB.js",function(){});}
+function loadScript1(){getScript(PLfile,function(){setTimeout(loadScript2,500);});}
+
+function load_fanthresh(){
+msgs.innerHTML="Loading Fan Threshold ...";
+LoadedMSG="Fan Threshold Loaded ✔";fanTemp=tempC.value;
+PLfile="FanThresh.js";
+loadScript1();
+}
+</script>
+</body>
+</html>
